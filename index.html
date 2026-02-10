@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flow AI v4</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+  <h1>🌈 Flow AI v4</h1>
+  <div id="welcome" class="subtitle"></div>
+
+  <!-- THEMA -->
+  <div class="row">
+    <button onclick="setTheme('rust')">🌿 Rust</button>
+    <button onclick="setTheme('creatief')">🎨 Creatief</button>
+    <button onclick="setTheme('focus')">🎯 Focus</button>
+  </div>
+
+  <!-- MOOD -->
+  <div class="row">
+    <button onclick="setMood('rustig')">😌 Rustig</button>
+    <button onclick="setMood('twijfel')">🤔 Twijfel</button>
+    <button onclick="setMood('energie')">⚡ Energie</button>
+    <button onclick="setMood('zwaar')">🌧️ Zwaar</button>
+  </div>
+
+  <!-- AI PERSONAGES -->
+  <select id="persona">
+    <option value="rustbrenger">🌱 Rustbrenger</option>
+    <option value="coach">🧭 Coach</option>
+    <option value="motivator">🔥 Motivator</option>
+    <option value="denker">🌊 Denker</option>
+  </select>
+
+  <textarea id="input" placeholder="Wat leeft er nu in je?"></textarea>
+  <button class="main" onclick="startFlow()">✨ Start Flow</button>
+
+  <div id="output" class="box"></div>
+  <button class="small" onclick="spreek()">🔊 Luister naar AI</button>
+
+  <div id="history" class="history"></div>
+  <button class="small" onclick="exportHistory()">📤 Export inzichten</button>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
