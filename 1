@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rust & Reflectie</title>
+
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: linear-gradient(180deg, #f4f6f8, #e9edf0);
+      margin: 0;
+      padding: 20px;
+      color: #333;
+    }
+
+    h1 {
+      text-align: center;
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+
+    p {
+      text-align: center;
+      color: #666;
+    }
+
+    textarea {
+      width: 100%;
+      height: 120px;
+      padding: 15px;
+      font-size: 16px;
+      border-radius: 12px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+      margin-top: 20px;
+    }
+
+    button {
+      width: 100%;
+      margin-top: 15px;
+      padding: 15px;
+      font-size: 16px;
+      border: none;
+      border-radius: 12px;
+      background: #2f80ed;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:active {
+      background: #256ad6;
+    }
+
+    .ai-box {
+      margin-top: 25px;
+      padding: 18px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      min-height: 60px;
+    }
+
+    .thinking {
+      color: #888;
+      font-style: italic;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Warmte & Rust</h1>
+  <p>Schrijf wat er in je leeft. De AI denkt met je mee.</p>
+
+  <textarea id="inputTekst" placeholder="Typ hier je gedachten..."></textarea>
+
+  <button onclick="laatAIMeedenken()">Laat AI meedenken</button>
+
+  <div id="aiAntwoord" class="ai-box"></div>
+
+  <script>
+    function laatAIMeedenken() {
+      const input = document.getElementById("inputTekst").value.trim();
+      const antwoordVeld = document.getElementById("aiAntwoord");
+
+      if (input === "") {
+        antwoordVeld.innerHTML = "💭 Schrijf eerst iets, al is het maar één zin.";
+        return;
+      }
+
+      antwoordVeld.innerHTML = "<span class='thinking'>🤔 AI denkt even na...</span>";
+
+      setTimeout(() => {
+        const reacties = [
+          "Wat je schrijft klinkt alsof je al een tijdje veel draagt. Misschien hoef je het niet meteen op te lossen, alleen even te erkennen.",
+          "Dit voelt als iemand die vooruit wil, maar ook moe is. Dat mag naast elkaar bestaan.",
+          "Er zit eerlijkheid in je woorden. Soms ontstaat rust niet door antwoorden, maar door ruimte.",
+          "Als je dit zo leest: wat zou je tegen jezelf zeggen als je mild zou zijn?",
+          "Misschien is dit een moment om even stil te staan in plaats van verder te duwen."
+        ];
+
+        const reactie = reacties[Math.floor(Math.random() * reacties.length)];
+
+        antwoordVeld.innerHTML = "💬 " + reactie;
+      }, 1200);
+    }
+  </script>
+
+</body>
+</html>
